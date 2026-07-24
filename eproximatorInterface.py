@@ -1,7 +1,7 @@
 
 #Import functions from various locations
 
-from eproximator import run_approximator
+from eproximator import run_approximator, bestApprox, steps
 from eproximatorLoggingAlgorithm import growDataSet, searchDataSet
 
 #Import useful modules
@@ -63,7 +63,7 @@ def actionSelector():
 def runEproximatorHelper():
     value = (input("What are we approximating?"))
     if value.isdigit():
-        run_approximator(int(value))
+        run_approximator(int(value), bestApprox, steps)
     else:
         print ("Not an integer")
         runEproximatorHelper()

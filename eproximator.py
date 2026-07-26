@@ -182,9 +182,9 @@ def run_approximator(goal: float, bestApprox, steps):
     '''
     bestPath = []
     bestPathCondensedFormatted = []
+
     lastError = abs(bestApprox - goal)
-    sameOpCounter = 0
-    lastOp = None
+    nonImprovingStreak = 0
 
     while True:
         newApprox, op = cycle(bestApprox, goal)
@@ -195,17 +195,11 @@ def run_approximator(goal: float, bestApprox, steps):
             bestApprox = newApprox
             bestPath.append(op)
             lastError = newError
-            #print(f"{bcolours.OKGREEN} Step {steps}: {bestApprox:.6f} (via {op}) error={newError:.6f}")
+            nonImprovingStreak = 0
 
         else:
-            if op == lastOp:
-                sameOpCounter += 1
-            else:
-                sameOpCounter = 0
-            lastOp = op
-
-            if sameOpCounter >= 5:
-                #print("Stuck")
+            nonImprovingStreak += 1
+            if nonImprovingStreak >= 10:
                 break
 
         if newError < 0.00000001 or steps>100000000:

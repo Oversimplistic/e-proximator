@@ -174,12 +174,14 @@ def cycle(term, goal):
     return bestVal, bestOp
 
 def run_approximator(goal: float, bestApprox, steps):
+
     ''' Runs the Greedy Hill-Climbing algorithm.
     Args:
         goal (float): goal term
         bestApprox: bestApproximation so far
         steps: number of steps taken so far
     '''
+
     bestPath = []
     bestPathCondensedFormatted = []
 
@@ -203,7 +205,6 @@ def run_approximator(goal: float, bestApprox, steps):
                 break
 
         if newError < 0.00000001 or steps>100000000:
-            #print("Done")
             break
 
 

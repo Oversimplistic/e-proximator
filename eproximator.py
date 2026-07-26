@@ -2,9 +2,7 @@ import math
 
 numSteps = 0
 steps = 0
-bestPath = []
 bestPathCondensed = []
-bestPathCondensedFormatted = []
 bestApprox = math.e
 
 symbolMap = {

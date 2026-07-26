@@ -11,6 +11,9 @@ import time
 #Colours
 
 class bcolours:
+    '''
+    Colours for text interface
+    '''
     HEADER = '\033[95m'
     OKBLUE = '\033[94m'
     OKGREEN = '\033[92m'
@@ -20,6 +23,10 @@ class bcolours:
     BOLD = '\033[1m'
 
 colourList = [
+    '''
+    List for colour selection, not all colour values in bcolours are currently enabled as options
+    '''
+    
     "HEADER",
     "OKBLUE",
     "OKGREEN",
@@ -36,31 +43,45 @@ colourChangeVariable = "OKGREEN"
 # Action selection Module
 
 def actionSelector():
+    '''
+    A function to allow selection of actions
+    Currently specialised, but with the ability to be generalised to any actions list
+    '''
+
     while True:
         freeLines(1)
         print(f"{colourCode()}Please select an action:")
+
+        #Lists options
         for i, name in enumerate(actionList):
             print(f"{i+1}: {name}")
         choice = input(f"\n\nSelect an Action:")
+
+        #Allows for numerical selection of actions from the list
         if choice.isdigit() and (int(choice)-1) in range(len(actionList)):
             action_name = actionList[int(choice)-1]
             function = functionList[action_name]
             function()
             time.sleep(timeDelayVariable)
 
-
+        #Allows for string selection of actions from the list
         elif choice in actionList:
             function = functionList[choice]
             function()
             time.sleep(timeDelayVariable)
 
+        #Handles non-valid action selections
         else:
             print(f"Not a valid choice!")
 
 
-#Run Eproximator Module
 
 def runEproximatorHelper():
+    '''
+    A helper function to run the Eproximator
+    Currently only supports integer values due to internal logic
+    '''
+
     value = (input("What are we approximating?"))
     if value.isdigit():
         run_approximator(int(value), bestApprox, steps)
@@ -69,9 +90,11 @@ def runEproximatorHelper():
         runEproximatorHelper()
 
 
-# Settings Page
 
 def settingSelector():
+    '''
+    A function to allow the selection of settings
+    '''
     while True:
         print(f"Please select a setting:")
         for i, name in enumerate(settingList):
@@ -79,7 +102,7 @@ def settingSelector():
 
         choice = input("\nSelect an Action: ")
 
-        # --- Number choice ---
+        #  Allows for numerical selection
         if choice.isdigit() and (int(choice) - 1) in range(len(settingList)):
             setting_name = settingList[int(choice)-1]
             func = settingFunctionList[setting_name]
@@ -88,7 +111,7 @@ def settingSelector():
             freeLines(10)
             return
 
-        # --- Name choice ---
+        # Allows for string selection
         elif choice in settingList:
             func = settingFunctionList[choice]
             func()
@@ -96,10 +119,14 @@ def settingSelector():
             freeLines(10)
             return
 
+        # Support for incorrect selections
         else:
             print("Not a valid choice!\n")
 
 def growDataSetScopeFunction():
+    '''
+    A function to allow the growth of the approximations cache
+    '''
     choice = int(input(f"Would you like to:\n1. Grow the Data Set from Zero\n2. Verify for a specific range"))
     if choice == 1:
         growDataSet(0,12345,12345)
@@ -114,11 +141,18 @@ def growDataSetScopeFunction():
         return
 
 def timeDelay():
+    '''
+    Adds a delay to print statements
+    '''
     global timeDelayVariable
     newDelay = input(f"What would you like the time delay to be? Currently: {timeDelayVariable}\n")
     timeDelayVariable = int(newDelay)
 
 def colourChange():
+    '''
+    Allows for colours in the CLI to be changed
+    :return:
+    '''
     global colourChangeVariable
 
     while True:
@@ -130,7 +164,7 @@ def colourChange():
             f"What colour would you like to use? (Current: {colourChangeVariable})\n"
         ).strip()
 
-        # --- Case 1: User enters a number ---
+        # Numerical Selection
         if colourChoice.isdigit():
             idx = int(colourChoice) - 1
             if 0 <= idx < len(colourList):
@@ -139,20 +173,21 @@ def colourChange():
                 print("Not a valid number.\n")
                 continue
 
-        # --- Case 2: User enters a name ---
+        # String Selection
         elif colourChoice in colourList:
             new_colour = colourChoice
 
+        # Edge cases
         else:
             print("Not a valid choice!\n")
             continue
 
-        # --- No change needed ---
+        # Same colour
         if new_colour == colourChangeVariable:
             print("That colour is already selected.\n")
             return
 
-        # --- Apply change ---
+        # Actions colour change
         colourChangeVariable = new_colour
         time.sleep(timeDelayVariable)
 
@@ -192,10 +227,15 @@ settingFunctionList = {
 #Handy rendering function
 
 def freeLines(n):
+    '''
+    Prints n lines of blank text
+    Args:
+        n (int): Number of lines to print
+    '''
+
     for i in range(n):
         print("\n")
 
-#Welcome Page
 
 print(f"{colourCode()}=========================================================================================================="
       f"\n"

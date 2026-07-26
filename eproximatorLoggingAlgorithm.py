@@ -13,6 +13,14 @@ f = open("eproximatorlog.txt", "a+")
 
 
 def check(term):
+    '''
+    Searches the cache for a value
+    Args:
+        term (int): term to search for
+    Returns:
+        If there: term
+        Else: None
+    '''
     f.seek(0)
     content = f.readlines()
     if term < len(content):
@@ -21,6 +29,13 @@ def check(term):
         return None
 
 def growDataSet(increment, minV, maxV):
+    '''
+    Grows the dataset by the set increment and between set values
+    Args:
+        increment (int): increment to grow by
+        minV (int): minimum value to grow
+        maxV (int): maximum value to grow
+    '''
 
     if increment == 0 and maxV == minV:
         increment = 0
@@ -52,6 +67,9 @@ def growDataSet(increment, minV, maxV):
         increment += 1
 
 def searchDataSet():
+    '''
+    Searches the cache for a value
+    '''
     global increment
 
     value = int(input("Enter the value to search: "))

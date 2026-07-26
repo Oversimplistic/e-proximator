@@ -72,7 +72,7 @@ def actionSelector():
 
         #Handles non-valid action selections
         else:
-            print(f"Not a valid choice!")
+            print(f"Not a valid choice! Must be a positive integer")
 
 
 

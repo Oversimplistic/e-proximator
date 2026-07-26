@@ -1,5 +1,4 @@
 from eproximator import run_approximator, bestApprox, steps
-import numpy as np
 import time
 
 t1 = 0

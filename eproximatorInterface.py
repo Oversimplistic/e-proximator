@@ -10,10 +10,9 @@ import time
 
 #Colours
 
+#Colours for text interface
 class bcolours:
-    '''
-    Colours for text interface
-    '''
+
     HEADER = '\033[95m'
     OKBLUE = '\033[94m'
     OKGREEN = '\033[92m'
@@ -22,11 +21,9 @@ class bcolours:
     ENDC = '\033[0m'
     BOLD = '\033[1m'
 
+#List for colour selection, not all colour values in bcolours are currently enabled as options
 colourList = [
-    '''
-    List for colour selection, not all colour values in bcolours are currently enabled as options
-    '''
-    
+
     "HEADER",
     "OKBLUE",
     "OKGREEN",

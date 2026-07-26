@@ -21,11 +21,30 @@ symbolMap = {
 # Helper Functions----------------------------------
 
 def closest_value(my_list, target):
+    '''
+    Determines which value, from a selection, is cloest to the target
+    Args:
+        my_list: A list of numbers
+        target: The target value
+    Returns:
+        The index of the closest value to the target
+    '''
     idx = min(range(len(my_list)), key=lambda i: abs(my_list[i] - target))
     return idx, my_list[idx]
 
 
 def goodOperation(func, term):
+    '''
+    Confirms that the output is a number, and is not infinite
+    Args:
+        func: the function being tested
+        term: the term being tested
+    Returns:
+        If not a number or infinite: None
+        If a number, and not infinite: val
+        Else: None
+    '''
+
     try:
         val = func(term)
         if val is None or math.isnan(val) or math.isinf(val):
@@ -36,6 +55,14 @@ def goodOperation(func, term):
 
 
 def methodCompression(list):
+    '''
+    Condenses the list of steps to merge repeated steps into 'step x n'
+    Args:
+        list: list of steps taken
+    Returns:
+        if List is none: [] and 0
+        if List is a list: Compressed list and the number of repeated steps
+    '''
     repeatedSteps = 0
     if not list:
         return [], repeatedSteps
@@ -64,28 +91,29 @@ def methodCompression(list):
 
 # Operations------------------------------------------
 
+#Add an e
 def add(term): return term + math.e
 
-
+#Subtract an e
 def sub(term): return term - math.e
 
-
+#Multiply by e
 def mul(term): return term * math.e
 
-
+#Divide by e
 def div(term): return term / math.e
 
-
+#To the power of e
 def power(term): return term ** math.e if term >= 0 else None
 
-
+#Root by e
 def root(term): return term ** (1 / math.e) if term >= 0 else None
 
-
+#Take the Natural Log
 def log(term): return math.log(term, math.e) if term > 0 else None
 
-
 def generate_scale_ops(max_power=30):
+    '''Generates magnitude adjustments up to 30 sig. fig.'''
     ops = []
     names = []
 
@@ -127,6 +155,15 @@ assert len(operations) == len(op_names), "Mismatch in operations and op_names"
 # Function for one cycle----------------------------------------------------------------
 
 def cycle(term, goal):
+    '''
+    Runs one cycle of approximations for greedy hill-climbing, finding the best operation and closest value
+    Args:
+        term (float): current term
+        goal (float): goal term
+    Returns:
+        bestVal: Closest value so far
+        bestOp: Op to find the best operation on this cycle
+    '''
     results = []
     for op in operations:
         r = goodOperation(op, term)
@@ -139,9 +176,12 @@ def cycle(term, goal):
     return bestVal, bestOp
 
 def run_approximator(goal: float, bestApprox, steps):
-
-
-    #Main Algorithms------------------------------------------------------------------------
+    ''' Runs the Greedy Hill-Climbing algorithm.
+    Args:
+        goal (float): goal term
+        bestApprox: bestApproximation so far
+        steps: number of steps taken so far
+    '''
 
     lastError = abs(bestApprox - goal)
     sameOpCounter = 0
@@ -191,8 +231,3 @@ def run_approximator(goal: float, bestApprox, steps):
     totalSteps = len(bestPath)
 
     return bestApprox, bestPathCondensedFormatted, totalSteps
-
-#run_approximator(goal)
-
-
-

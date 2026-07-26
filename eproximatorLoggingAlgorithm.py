@@ -37,6 +37,7 @@ def growDataSet(increment, minV, maxV):
         maxV (int): maximum value to grow
     '''
 
+    #A method to sneak in a grow from zero call without breaking function architecture
     if increment == 0 and maxV == minV:
         increment = 0
         maxV = 10000000000000000000000000000000000

@@ -136,6 +136,13 @@ def growDataSetScopeFunction():
             maxV = int(input(f"Enter Maximum Value: "))
             if maxV>minV:
                 break
+            elif maxV==minV:
+                print("Those are the same values. Maximum and Minimum cannot be equal")
+            elif maxV<minV:
+                print("Maximum cannot be less than minimum")
+            else:
+                print("Error in grow data set CLI query")
+
         growDataSet(0, minV, maxV)
         freeLines(10)
         return

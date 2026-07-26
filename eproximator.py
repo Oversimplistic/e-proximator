@@ -182,7 +182,8 @@ def run_approximator(goal: float, bestApprox, steps):
         bestApprox: bestApproximation so far
         steps: number of steps taken so far
     '''
-
+    bestPath = []
+    bestPathCondensedFormatted = []
     lastError = abs(bestApprox - goal)
     sameOpCounter = 0
     lastOp = None

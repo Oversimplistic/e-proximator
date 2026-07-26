@@ -127,13 +127,42 @@ def growDataSetScopeFunction():
     '''
     A function to allow the growth of the approximations cache
     '''
-    choice = int(input(f"Would you like to:\n1. Grow the Data Set from Zero\n2. Verify for a specific range"))
+    while True:
+        choice = (input(f"Would you like to:\n1. Grow the Data Set from Zero\n2. Verify for a specific range"))
+        if choice.isdigit():
+            choice = int(choice)
+            break
+        elif not choice.isdigit():
+            print("Must be a positive integer")
+        else:
+            print("Not a valid choice!")
+
     if choice == 1:
         growDataSet(0,12345,12345)
     elif choice == 2:
         while True:
-            minV = int(input(f"Enter Minimum Value: "))
-            maxV = int(input(f"Enter Maximum Value: "))
+
+            while True:
+                minV = input(f"Enter Minimum Value: ")
+                if minV.isdigit():
+                    minV = int(minV)
+                    break
+                elif not minV.isdigit():
+                    print("Must be a positive integer")
+                else:
+                    print("Not a valid choice!")
+
+
+            while True:
+                maxV = (input(f"Enter Maximum Value: "))
+                if maxV.isdigit():
+                    maxV = int(maxV)
+                    break
+                elif not maxV.isdigit():
+                    print("Must be a positive integer")
+                else:
+                    print("Not a valid choice!")
+
             if maxV>minV:
                 break
             elif maxV==minV:
@@ -144,7 +173,7 @@ def growDataSetScopeFunction():
                 print("Error in grow data set CLI query")
 
         growDataSet(0, minV, maxV)
-        freeLines(10)
+        freeLines(5)
         return
 
 def timeDelay():

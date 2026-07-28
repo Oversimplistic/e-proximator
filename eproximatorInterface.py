@@ -273,7 +273,7 @@ def freeLines(n):
 print(f"{colourCode()}=========================================================================================================="
       f"\n"
       f"\n"
-      f"                               Welcome to the (e)proximator API!"
+      f"                                 Welcome to the (e)proximator!"
       f"\n"
       f"\n"
       f"  This is a selection of optimised algorithms to get best approximations of values using exclusively e"

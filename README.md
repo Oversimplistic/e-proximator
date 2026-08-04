@@ -30,10 +30,11 @@ python eproximatorInterface.py
 
 ## Requirements 
 - Python 3.x
+- Pytest
 
 
 ## Roadmap
-- [ ] Pytest testing
+- [x] Pytest testing
 - [ ] Alternate search algorithms
 - [ ] Faster data look-up approach
 

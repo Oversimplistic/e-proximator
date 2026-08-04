@@ -1,4 +1,4 @@
-from eproximator import run_approximator, bestApprox, steps
+from eproximator import bestApprox, steps, run_hill_climber
 import time
 
 t1 = 0
@@ -50,7 +50,7 @@ def growDataSet(increment, minV, maxV):
             print(f"Found previous entry: {found_line.strip()}")
         else:
             t1 = time.time()
-            newValue, path, totalSteps = run_approximator(increment, bestApprox, steps)
+            newValue, path, totalSteps = run_hill_climber(increment, bestApprox, steps)
 
             # Ensure numeric
             if totalSteps is None:
@@ -80,7 +80,7 @@ def searchDataSet():
     else:
         print(f"No previous entry")
         print(f"Calculating value now...")
-        run_approximator(value, bestApprox, steps)
+        run_hill_climber(value, bestApprox, steps)
 
 
 #growDataSet()

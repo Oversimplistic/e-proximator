@@ -173,7 +173,7 @@ def cycle(term, goal):
     bestOp = op_names[idx]
     return bestVal, bestOp
 
-def run_approximator(goal: float, bestApprox, steps):
+def run_hill_climber(goal: float, bestApprox, steps):
 
     ''' Runs the Greedy Hill-Climbing algorithm.
     Args:

@@ -1,7 +1,7 @@
 
 #Import functions from various locations
 
-from eproximator import run_approximator, bestApprox, steps
+from eproximator import run_hill_climber, bestApprox, steps
 from eproximatorLoggingAlgorithm import growDataSet, searchDataSet
 
 #Import useful modules
@@ -81,7 +81,7 @@ def runEproximatorHelper():
 
     value = (input("What are we approximating?"))
     if value.isdigit():
-        run_approximator(int(value), bestApprox, steps)
+        run_hill_climber(int(value), bestApprox, steps)
     else:
         print ("Not an integer")
         runEproximatorHelper()

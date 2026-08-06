@@ -1,7 +1,8 @@
 
 #Import functions from various locations
 
-from algorithms.eproximator import run_hill_climber, bestApprox, steps
+from algorithms.generalfunctions import bestApprox, steps
+from algorithms.hill_climbing_algorithm import run_hill_climber
 from datahandling.logging.eproximatorLoggingAlgorithm import growDataSet, searchDataSet
 
 #Import useful modules

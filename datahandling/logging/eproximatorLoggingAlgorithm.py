@@ -1,4 +1,5 @@
-from algorithms.eproximator import bestApprox, steps, run_hill_climber
+from algorithms.generalfunctions import bestApprox, steps
+from algorithms.hill_climbing_algorithm import run_hill_climber
 import time
 
 t1 = 0

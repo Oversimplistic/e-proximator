@@ -1,4 +1,4 @@
-from eproximator import bestApprox, steps, run_hill_climber
+from algorithms.eproximator import bestApprox, steps, run_hill_climber
 import time
 
 t1 = 0
@@ -8,7 +8,7 @@ finalt = 0
 increment = 0
 
 # Open file in append + read mode
-f = open("eproximatorlog.txt", "a+")
+f = open("/Users/leogood/PycharmProjects/(e)proximator/datahandling/logging/eproximatorlog.txt", "a+")
 
 
 def check(term):

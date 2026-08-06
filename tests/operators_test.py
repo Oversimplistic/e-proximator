@@ -1,5 +1,5 @@
 import pytest
-from eproximator import run_hill_climber
+from algorithms.eproximator import run_hill_climber
 import math
 
 @pytest.fixture

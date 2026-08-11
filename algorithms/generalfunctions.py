@@ -39,7 +39,7 @@ def goodOperation(func, term):
         term: the term being tested
     Returns:
         If not a number or infinite: None
-        If a number, and not infinite: val
+        If a number, and not infinite: value
         Else: None
     '''
 

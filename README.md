@@ -14,7 +14,6 @@ You were aiming for: 335637131
 Best Approximation: 335637130.48715204
 Best Path -> ['+100000000', '2x +10000000', '3x +1000000', '5x +100000', '3x -10000', '4x +1000', '-']
 ```
-n.b. Outputs currently vary as CLI is not fully integrated with all algorithms.
 ## How it works
 - Uses a set of base operators (add/sub/mul/div/pow/root/log against e)
 - Uses (±10^p * e) for large-magnitude convergence
@@ -26,6 +25,7 @@ n.b. Outputs currently vary as CLI is not fully integrated with all algorithms.
 ## Current Limitations
 - Just three algorithms to chose from
 - Simulated Annealing has a capped run-time, meaning there is some variation between instances in the precision of the approximation
+- Logging, while functional, is unpolished
 
 ## How to Run
 ```bash

@@ -25,4 +25,4 @@ def compare(goal, startingValue):
     print(f"Optimal Path is: {results[bestMethod][0]}")
 
 
-compare(15,0)
+

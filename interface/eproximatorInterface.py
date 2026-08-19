@@ -4,6 +4,7 @@
 from algorithms.generalfunctions import bestApprox, steps
 from algorithms.hill_climbing_algorithm import run_hill_climber
 from datahandling.logging.eproximatorLoggingAlgorithm import growDataSet, searchDataSet
+from interface.comparison import compare
 
 #Import useful modules
 
@@ -80,12 +81,9 @@ def runEproximatorHelper():
     Currently only supports integer values due to internal logic
     '''
 
-    value = (input("What are we approximating?"))
-    if value.isdigit():
-        run_hill_climber(int(value), bestApprox, steps)
-    else:
-        print ("Not an integer")
-        runEproximatorHelper()
+    value = int((input("What are we approximating?")))
+    run_hill_climber(int(value), bestApprox, steps)
+    compare(value, 0)
 
 
 

@@ -33,7 +33,6 @@ def run_hill_climber(goal: float, bestApprox, steps):
     '''
 
     bestPath = []
-    bestPathCondensedFormatted = []
 
     lastError = abs(bestApprox - goal)
     nonImprovingStreak = 0
@@ -57,10 +56,7 @@ def run_hill_climber(goal: float, bestApprox, steps):
         if newError < 0.00000001 or steps>100000000:
             break
 
-
-    print(f"You were aiming for:", goal)
-    print(f"Best Approximation:", bestApprox)
-
+    bestPathCondensedFormatted = []
     bestPathCondensed, repeatedSteps = methodCompression(bestPath)
     for item in bestPathCondensed:
         if "x " in item:
@@ -70,8 +66,8 @@ def run_hill_climber(goal: float, bestApprox, steps):
             bestPathCondensedFormatted.append(symbolMap[item])
 
 
-    print(f"Best Path", "->", (bestPathCondensedFormatted))
 
     totalSteps = len(bestPath)
 
-    return bestApprox, bestPathCondensedFormatted, totalSteps
+    error = abs(goal-bestApprox)
+    return bestPathCondensedFormatted, bestApprox, totalSteps, error

@@ -1,4 +1,4 @@
-from algorithms.generalfunctions import operations, op_names, goodOperation
+from algorithms.generalfunctions import operations, op_names, goodOperation, methodCompression, symbolMap
 
 beamWidth = 3 #Number of pathways pursued
 maxDepth = 50 #Safety net to catch run away values
@@ -113,6 +113,16 @@ def beamSearch(goal, startingValue):
 
         depth += 1
 
-    return bestValue, bestPath
+    error = abs(goal - bestValue)
 
-print(beamSearch(13, 0))
+    bestPathCondensedFormatted = []
+    bestPathCondensed, repeatedSteps = methodCompression(bestPath)
+    for item in bestPathCondensed:
+        if "x " in item:
+            count, op_name = item.split("x ")
+            bestPathCondensedFormatted.append(f"{count}x {symbolMap[op_name]}")
+        else:
+            bestPathCondensedFormatted.append(symbolMap[item])
+
+    return bestPathCondensedFormatted, bestValue, error
+

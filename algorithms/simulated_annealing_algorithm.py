@@ -1,7 +1,7 @@
 import math
 import random
 
-from algorithms.generalfunctions import operations, op_names, goodOperation
+from algorithms.generalfunctions import operations, op_names, goodOperation, methodCompression, symbolMap
 
 def randomCycle(term):
     '''
@@ -28,7 +28,7 @@ def run_simulated_annealing(goal: float, startApprox=math.e, startingSteps = 0,
                             cooling_rate = 0.995,
                             min_temp = 1e-8,
                             reheat_time = 200,
-                            max_reheats = 100,
+                            max_reheats = 300,
                             hard_stall_limit = 5_000_000):
 
     '''Runs the Simulated Annealing Algorithm
@@ -116,7 +116,18 @@ def run_simulated_annealing(goal: float, startApprox=math.e, startingSteps = 0,
         if overallBestError < 1e-8:
             break
 
-    return overallBest, overallBestPath, steps, accepted
+    error = abs(goal-overallBest)
 
-print(run_simulated_annealing(3))
+    bestPathCondensedFormatted = []
+    bestPathCondensed, repeatedSteps = methodCompression(overallBestPath)
+    for item in bestPathCondensed:
+        if "x " in item:
+            count, op_name = item.split("x ")
+            bestPathCondensedFormatted.append(f"{count}x {symbolMap[op_name]}")
+        else:
+            bestPathCondensedFormatted.append(symbolMap[item])
+
+    return bestPathCondensedFormatted, overallBest, steps, accepted, error
+
+
 

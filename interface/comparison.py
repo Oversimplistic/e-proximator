@@ -25,4 +25,14 @@ def compare(goal, startingValue):
     print(f"Optimal Path is: {results[bestMethod][0]}")
 
 
-compare(15,0)
+def logCompare(goal, startingValue):
+    results = [None, None, None]
+
+    results[0] = run_hill_climber(goal, startingValue, 0)
+    results[1] = run_simulated_annealing(goal, startingValue)
+    results[2] = beamSearch(goal, startingValue)
+
+    errors = [results[0][3], results[1][4], results[2][2]]
+    bestMethod = errors.index(min(errors))
+
+    return results[bestMethod]

@@ -2,6 +2,8 @@ from algorithms.generalfunctions import bestApprox, steps
 from algorithms.hill_climbing_algorithm import run_hill_climber
 import time
 
+from interface.comparison import logCompare
+
 t1 = 0
 t2 = 0
 finalt = 0
@@ -51,16 +53,12 @@ def growDataSet(increment, minV, maxV):
             print(f"Found previous entry: {found_line.strip()}")
         else:
             t1 = time.time()
-            newValue, path, totalSteps = run_hill_climber(increment, bestApprox, steps)
-
-            # Ensure numeric
-            if totalSteps is None:
-                totalSteps = 0
+            data = logCompare(increment, 0)
 
             # Logging
             t2 = time.time()
             tfinal = t2 - t1
-            log_line = f"Goal: {increment}, Best Approximation: {newValue}, Delta: {newValue - increment}, Path: {path}, Total Steps: {totalSteps}, Time Taken: {tfinal}\n"
+            log_line = f"Value: {increment}. Path: {data} \n"
             f.write(log_line)
             f.flush()
             print(f"Logged new value: {increment}")
@@ -83,6 +81,4 @@ def searchDataSet():
         print(f"Calculating value now...")
         run_hill_climber(value, bestApprox, steps)
 
-
-#growDataSet()
 

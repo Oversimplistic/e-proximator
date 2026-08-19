@@ -1,4 +1,5 @@
 [![Tests](https://github.com/Oversimplistic/e-proximator/actions/workflows/tests.yml/badge.svg)](https://github.com/Oversimplistic/e-proximator/actions/workflows/tests.yml)
+
 # e-proximator - Numerical Approximation Using Only e
 
 A CLI tool that approximates any target value using a sequence of operations built exclusively from Euler's number (e), via a range of algorithms acting with a defined operator set.

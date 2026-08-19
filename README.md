@@ -1,4 +1,4 @@
-[![Tests](https://github.com/Oversimplistic/e-proximator/actions/workflows/tests.yml/badge.svg)](https://github.com/Oversimplistic/e-proximator/actions/workflows/tests.yml)
+[![Tests](https://github.com/Oversimplistic/e-proximator/actions/workflows/tests.yml/badge.svg?branch=master)](https://github.com/Oversimplistic/e-proximator/actions/workflows/tests.yml)
 
 # e-proximator - Numerical Approximation Using Only e
 

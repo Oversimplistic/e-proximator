@@ -27,7 +27,7 @@ Best Path -> ['+100000000', '2x +10000000', '3x +1000000', '5x +100000', '3x -10
 ## Current Limitations
 - Just three algorithms to chose from
 - Simulated Annealing has a capped run-time, meaning there is some variation between instances in the precision of the approximation
-- While values are cached, the cache will not update if a better approximation is found on another run.
+- While values are cached, the cache will not update if a better approximation is found on another run. It is therefore suggested that the cache is wiped via settings when changing versions. 
 
 ## How to Run
 ```bash

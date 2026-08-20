@@ -26,7 +26,7 @@ Best Path -> ['+100000000', '2x +10000000', '3x +1000000', '5x +100000', '3x -10
 
 ## Known Limitations
 - Just three algorithms to chose from
-- Simulated annealing inherently has variation between runs. While this has been minimised, small variations can still be seen between runs.
+- Simulated annealing inherently has variation between runs. While this has been minimised, small variations can therefore still be observed.
 
 ## How to Run
 ```bash

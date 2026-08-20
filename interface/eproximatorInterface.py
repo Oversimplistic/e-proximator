@@ -286,6 +286,8 @@ print(f"{colourCode()}==========================================================
 
 )
 
+wipeCache()
+
 actionSelector()
 
 

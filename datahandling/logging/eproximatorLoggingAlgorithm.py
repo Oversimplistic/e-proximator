@@ -81,4 +81,6 @@ def searchDataSet():
         print(f"Calculating value now...")
         run_hill_climber(value, bestApprox, steps)
 
+def wipeCache():
+    f.truncate(0)
 

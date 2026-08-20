@@ -3,7 +3,7 @@
 
 from algorithms.generalfunctions import bestApprox, steps
 from algorithms.hill_climbing_algorithm import run_hill_climber
-from datahandling.logging.eproximatorLoggingAlgorithm import growDataSet, searchDataSet
+from datahandling.logging.eproximatorLoggingAlgorithm import growDataSet, searchDataSet, wipeCache
 from interface.comparison import compare
 
 #Import useful modules
@@ -249,11 +249,13 @@ functionList = {
 settingList = [
     "Time Delay",
     "Colour Change",
+    "Wipe Cache"
 ]
 
 settingFunctionList = {
     "Time Delay": timeDelay,
     "Colour Change": colourChange,
+    "Wipe Cache": wipeCache
 }
 
 #Handy rendering function

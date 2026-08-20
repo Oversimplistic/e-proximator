@@ -24,9 +24,9 @@ Best Path -> ['+100000000', '2x +10000000', '3x +1000000', '5x +100000', '3x -10
   - Beam Search: Explores a decision tree, maintaining N many optimal branches as possible nodes for progression
   - Simulated Annealing: A probabilistic model to find the global optimum by modelling heat and cooling in metallurgy
 
-## Current Limitations
+## Known Limitations
 - Just three algorithms to chose from
-- Simulated Annealing has a capped run-time, meaning there is some variation between instances in the precision of the approximation
+- Simulated annealing inherently has variation between runs. While this has been minimised, small variations can still be seen between runs.
 
 ## How to Run
 ```bash

@@ -27,7 +27,7 @@ Best Path -> ['+100000000', '2x +10000000', '3x +1000000', '5x +100000', '3x -10
 ## Current Limitations
 - Just three algorithms to chose from
 - Simulated Annealing has a capped run-time, meaning there is some variation between instances in the precision of the approximation
-- Logging, while functional, is unpolished
+- While values are cached, the cache will not update if a better approximation is found on another run.
 
 ## How to Run
 ```bash
@@ -42,12 +42,12 @@ python eproximatorInterface.py
 ## Roadmap
 - [x] Pytest testing
 - [x] Alternate search algorithms
-- [ ] Faster data look-up approach
+- [x] Improved data-logging
 
 ## Key Learnings
-- Hill-Climbing algorithmic search
+- Hill-Climbing Algorithm
 - Beam Search Algorithm
-- Simulated Annealing
+- Simulated Annealing Algorithm
 - Floating-point precision handling
 - CLI menu design
 - File-based caching

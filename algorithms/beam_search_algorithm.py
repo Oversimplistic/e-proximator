@@ -124,5 +124,5 @@ def beamSearch(goal, startingValue):
         else:
             bestPathCondensedFormatted.append(symbolMap[item])
 
-    return bestPathCondensedFormatted, bestValue, error
+    return bestPathCondensedFormatted, bestValue, depth, error
 

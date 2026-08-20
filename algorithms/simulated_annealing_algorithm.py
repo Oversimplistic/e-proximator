@@ -58,7 +58,7 @@ def run_simulated_annealing(goal: float, startApprox=math.e, startingSteps = 0,
 
     while steps < 100_100_100:
 
-        if steps % 100_000 == 0:
+        if steps % 100_000 == 0 and steps != 0:
             print(f"Step {steps}: best error so far = {overallBestError:.10f}, temp = {temp:.6f}")
 
         steps += 1
@@ -127,7 +127,7 @@ def run_simulated_annealing(goal: float, startApprox=math.e, startingSteps = 0,
         else:
             bestPathCondensedFormatted.append(symbolMap[item])
 
-    return bestPathCondensedFormatted, overallBest, steps, accepted, error
+    return bestPathCondensedFormatted, overallBest, steps, error
 
 
 

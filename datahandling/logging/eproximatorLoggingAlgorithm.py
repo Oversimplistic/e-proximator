@@ -53,12 +53,12 @@ def growDataSet(increment, minV, maxV):
             print(f"Found previous entry: {found_line.strip()}")
         else:
             t1 = time.time()
-            data = logCompare(increment, 0)
+            path, approximation, steps, error = logCompare(increment, 0)
 
             # Logging
             t2 = time.time()
             tfinal = t2 - t1
-            log_line = f"Value: {increment}. Path: {data} \n"
+            log_line = f"Value: {increment}. Best Approx: {approximation}. Error: {error}. Path: {path} \n"
             f.write(log_line)
             f.flush()
             print(f"Logged new value: {increment}")

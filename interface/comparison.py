@@ -32,7 +32,7 @@ def logCompare(goal, startingValue):
     results[1] = run_simulated_annealing(goal, startingValue)
     results[2] = beamSearch(goal, startingValue)
 
-    errors = [results[0][3], results[1][4], results[2][2]]
+    errors = [results[0][3], results[1][3], results[2][3]]
     bestMethod = errors.index(min(errors))
 
     return results[bestMethod]
